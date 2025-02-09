@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML TO DO LIST</title>
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="vendor/fontawesome/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -116,9 +119,11 @@
         </form>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         function showAddTaskModal() {
             $("#addTaskModal").modal('show');
@@ -145,7 +150,7 @@
 
             if (storageObjectArr.length > 0) {
                 storageObjectArr.forEach((task, index) => {
-                    const date = new Date(task.taskETA).toUTCString();
+                    const date = new Date(task.taskETA).toLocaleString();
                     html += `<tr>
                                 <td>${index + 1}</td>
                                 <td>${task.taskDescription}</td>
@@ -201,7 +206,6 @@
             }
         }
 
-        // Load tasks from storage on page load
         $(document).ready(() => {
             createHtmlfromStorage();
         });
